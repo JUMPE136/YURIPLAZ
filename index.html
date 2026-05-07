@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuri Plaz - Menú Móvil</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Arial Black', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        header {
+            background-color: #ff0000;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+
+        .contenedor-menu {
+            display: flex;
+            flex: 1;
+            width: 100%;
+        }
+
+        .opcion {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            border-right: 1px solid rgba(0,0,0,0.3);
+            transition: flex 0.4s ease;
+            overflow: hidden;
+        }
+
+        /* Ajuste para que la imagen ocupe todo el fondo */
+        .opcion img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            object-fit: cover; /* Esto hace que la imagen rellene la columna */
+            z-index: 1;
+        }
+
+        /* Capa de sombra para leer el texto y efecto de luz */
+        .opcion::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            transition: background 0.3s;
+        }
+
+        /* Efecto al tocar: se ensancha y da "luz" */
+        .opcion:active {
+            flex: 3;
+        }
+
+        .opcion:active::before {
+            background: rgba(255, 255, 255, 0.3); /* Efecto de luz */
+        }
+
+        .opcion span {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            z-index: 3;
+            font-weight: bold;
+            font-size: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <span>YURI PLAZ</span>
+        <span>INICIO</span>
+    </header>
+
+    <nav class="contenedor-menu">
+        <a href="vasos.html" class="opcion">
+            <img src="https://multidesechables.com/wp-content/uploads/2019/04/vasos-transparentes-de-7-onzas-de-buena-calidad.jpg?x87776" alt="Vasos">
+            <span>Vasos</span>
+        </a>
+        <a href="bolsas.html" class="opcion">
+            <img src="https://dinorank.com/img/dinobrain/239193/imagenf0329d6ee6960fb36a68b104c91fd1d0.jpg" alt="Bolsas">
+            <span>Bolsas</span>
+        </a>
+        <a href="jabones.html" class="opcion">
+            <img src="https://previews.123rf.com/images/eutoch/eutoch1108/eutoch110800019/10313010-bottle-of-liquid-soap-and-three-bars-of-soap-isolated-on-white-background.avif" alt="Jabones">
+            <span>Jabones</span>
+        </a>
+        <a href="vinipeles.html" class="opcion">
+            <img src="https://www.todoaseo.com/wp-content/uploads/2017/01/PAPEL-VINIPEL-X-1500-M-REF-06986.jpg" alt="Vinipeles">
+            <span>Vinipeles</span>
+        </a>
+        <a href="recipientes.html" class="opcion">
+            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=428x10000:format=png/path/s845190eb61aaf30c/image/ie3752dfe4cf4aa83/version/1472229484/image.png" alt="Recipientes">
+            <span>Resipientes</span>
+        </a>
+        <a href="portacomidas.html" class="opcion">
+            <img src="https://multidesechables.com/wp-content/uploads/2018/01/contenedores-c1-darnel.jpg?x87776" alt="Portacomidas">
+            <span>Portacomidas</span>
+        </a>
+    </nav>
+
+</body>
+</html>
