@@ -5,83 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuri Plaz - Menú Móvil</title>
     <style>
+        /* Configuración base para que no haya espacios en blanco */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            font-family: 'Arial Black', sans-serif;
+            font-family: 'Arial', sans-serif;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
-            background-color: #000;
+            background-color: #fff;
+            overflow: hidden; /* Evita que la pantalla se mueva */
         }
 
+        /* Barra roja superior (Exacta a tu imagen) */
         header {
             background-color: #ff0000;
-            color: black;
+            color: #000;
             display: flex;
             justify-content: space-between;
-            padding: 15px 20px;
-            font-weight: bold;
-            font-size: 1.2rem;
+            align-items: center;
+            padding: 20px;
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
             z-index: 10;
         }
 
+        /* Contenedor que apila las categorías una debajo de otra */
         .contenedor-menu {
             display: flex;
-            flex: 1;
-            width: 100%;
+            flex-direction: column;
+            flex: 1; /* Ocupa todo el espacio sobrante */
         }
 
+        /* Cada fila de categoría */
         .opcion {
             flex: 1;
             position: relative;
             display: flex;
-            align-items: center; 
+            align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: white;
-            border-right: 1px solid rgba(0,0,0,0.3);
-            transition: flex 0.4s ease;
+            color: #000;
             overflow: hidden;
+            border-bottom: 2px solid #fff; /* Pequeña línea divisoria blanca */
         }
 
-        /* Ajuste para que la imagen ocupe todo el fondo */
+        /* Ajuste de las imágenes para que llenen la fila */
         .opcion img {
             position: absolute;
-            height: 100%;
             width: 100%;
-            object-fit: cover; /* Esto hace que la imagen rellene la columna */
+            height: 100%;
+            object-fit: cover; /* Esto es clave para que no se deformen */
             z-index: 1;
         }
 
-        /* Capa de sombra para leer el texto y efecto de luz */
-        .opcion::before {
+        /* Texto centrado y grueso (Negro como en tu foto) */
+        .opcion span {
+            position: relative;
+            z-index: 3;
+            font-size: 2.2rem;
+            font-weight: 900;
+            /* Sombra blanca para asegurar que se lea sobre cualquier imagen */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Efecto de luz al presionar con el dedo */
+        .opcion::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.2);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0);
             z-index: 2;
-            transition: background 0.3s;
+            transition: background 0.2s;
         }
 
-        /* Efecto al tocar: se ensancha y da "luz" */
-        .opcion:active {
-            flex: 3;
-        }
-
-        .opcion:active::before {
-            background: rgba(255, 255, 255, 0.3); /* Efecto de luz */
-        }
-
-        .opcion span {
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            z-index: 3;
-            font-weight: bold;
-            font-size: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            text-transform: uppercase;
+        .opcion:active::after {
+            background: rgba(255, 255, 255, 0.4); /* Destello de luz */
         }
 
     </style>
@@ -95,7 +95,7 @@
 
     <nav class="contenedor-menu">
         <a href="vasos.html" class="opcion">
-            <img src="https://www.grupomasala.com/wp-content/uploads/2020/12/Tuc.jpg" alt="Vasos">
+            <img src="https://multidesechables.com/wp-content/uploads/2019/04/vasos-transparentes-de-7-onzas-de-buena-calidad.jpg?x87776" alt="Vasos">
             <span>Vasos</span>
         </a>
         <a href="bolsas.html" class="opcion">
@@ -115,7 +115,7 @@
             <span>Resipientes</span>
         </a>
         <a href="portacomidas.html" class="opcion">
-            <img src="https://www.aseoysuministrosv.com/cdn/shop/products/j1.jpg?v=1772560746&width=713" alt="Portacomidas">
+            <img src="https://multidesechables.com/wp-content/uploads/2018/01/contenedores-c1-darnel.jpg?x87776" alt="Portacomidas">
             <span>Portacomidas</span>
         </a>
     </nav>
