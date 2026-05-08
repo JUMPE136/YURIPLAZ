@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuri Plaz - Menú Móvil</title>
+    <title>Yuri Plaz - Menú</title>
     <style>
-        /* Configuración base para que no haya espacios en blanco */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
             font-family: 'Arial', sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
             background-color: #fff;
-            overflow: hidden; /* Evita que la pantalla se mueva */
+            /* Quitamos el overflow hidden para permitir el deslizamiento */
         }
 
-        /* Barra roja superior (Exacta a tu imagen) */
         header {
             background-color: #ff0000;
             color: #000;
@@ -28,19 +23,21 @@
             font-weight: 900;
             font-size: 1.5rem;
             text-transform: uppercase;
-            z-index: 10;
+            /* Fijamos el header arriba para que no se pierda al bajar */
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Contenedor que apila las categorías una debajo de otra */
         .contenedor-menu {
             display: flex;
             flex-direction: column;
-            flex: 1; /* Ocupa todo el espacio sobrante */
+            width: 100%;
         }
 
-        /* Cada fila de categoría */
         .opcion {
-            flex: 1;
+            /* Definimos una altura fija mínima para que cada cuadro se vea bien */
+            height: 180px; 
             position: relative;
             display: flex;
             align-items: center;
@@ -48,29 +45,26 @@
             text-decoration: none;
             color: #000;
             overflow: hidden;
-            border-bottom: 2px solid #fff; /* Pequeña línea divisoria blanca */
+            border-bottom: 3px solid #fff;
         }
 
-        /* Ajuste de las imágenes para que llenen la fila */
         .opcion img {
             position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Esto es clave para que no se deformen */
+            object-fit: cover;
             z-index: 1;
         }
 
-        /* Texto centrado y grueso (Negro como en tu foto) */
         .opcion span {
             position: relative;
             z-index: 3;
             font-size: 2.2rem;
             font-weight: 900;
-            /* Sombra blanca para asegurar que se lea sobre cualquier imagen */
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
         }
 
-        /* Efecto de luz al presionar con el dedo */
         .opcion::after {
             content: '';
             position: absolute;
@@ -81,7 +75,7 @@
         }
 
         .opcion:active::after {
-            background: rgba(255, 255, 255, 0.4); /* Destello de luz */
+            background: rgba(255, 255, 255, 0.4);
         }
 
     </style>
@@ -95,7 +89,7 @@
 
     <nav class="contenedor-menu">
         <a href="vasos.html" class="opcion">
-            <img src="https://supermercadolaestacion.com/37167-large_default/vasos-desechables-wau-9-onzas-paquete-x-50-unidades.jpg" alt="Vasos">
+            <img src="https://multidesechables.com/wp-content/uploads/2019/04/vasos-transparentes-de-7-onzas-de-buena-calidad.jpg?x87776" alt="Vasos">
             <span>Vasos</span>
         </a>
         <a href="bolsas.html" class="opcion">
@@ -115,7 +109,7 @@
             <span>Resipientes</span>
         </a>
         <a href="portacomidas.html" class="opcion">
-            <img src="https://colombia.carvajalempaques.com/cms/wp-content/uploads/portacomidas-p3-2.jpg" alt="Portacomidas">
+            <img src="https://multidesechables.com/wp-content/uploads/2018/01/contenedores-c1-darnel.jpg?x87776" alt="Portacomidas">
             <span>Portacomidas</span>
         </a>
     </nav>
